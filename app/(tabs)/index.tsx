@@ -22,20 +22,18 @@ export default function Example() {
             alt="App Logo"
             resizeMode="contain"
             style={styles.headerImg}
-            source={{ uri: 'https://assets.withfra.me/SignIn.2.png' }} />
+            source={{ uri: 'https://assets.withfra.me/LOGO TCC.png' }} />
 
           <Text style={styles.title}>
-            Sign in to <Text style={{ color: '#7d07ec' }}>MyApp</Text>
+            Teach Learn <Text style={{ color: '#7d07ec' }}></Text>
           </Text>
 
-          <Text style={styles.subtitle}>
-            Get access to your portfolio and more
-          </Text>
+
         </View>
 
         <View style={styles.form}>
           <View style={styles.input}>
-            <Text style={styles.inputLabel}>Email address</Text>
+            <Text style={styles.inputLabel}>Email </Text>
 
             <TextInput
               autoCapitalize="none"
@@ -43,14 +41,14 @@ export default function Example() {
               clearButtonMode="while-editing"
               keyboardType="email-address"
               onChangeText={email => setForm({ ...form, email })}
-              placeholder="john@example.com"
+              placeholder="nome@gmail.com"
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
               value={form.email} />
           </View>
 
           <View style={styles.input}>
-            <Text style={styles.inputLabel}>Password</Text>
+            <Text style={styles.inputLabel}>Senha</Text>
 
             <TextInput
               autoCorrect={false}
@@ -69,7 +67,7 @@ export default function Example() {
                 // handle onPress
               }}>
               <View style={styles.btn}>
-                <Text style={styles.btnText}>Sign in</Text>
+                <Text style={styles.btnText}>Login</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -78,7 +76,7 @@ export default function Example() {
             onPress={() => {
               // handle link
             }}>
-            <Text style={styles.formLink}>Forgot password?</Text>
+            <Text style={styles.formLink}>Esqueceu a senha?</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -88,8 +86,8 @@ export default function Example() {
           // handle link
         }}>
         <Text style={styles.formFooter}>
-          Don't have an account?{' '}
-          <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
+          Não possui uma conta?{' '}
+          <Text style={{ textDecorationLine: 'underline' }}>Cadastre-se</Text>
         </Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -139,7 +137,7 @@ const styles = StyleSheet.create({
   formLink: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#9407ec',
+    color: '#000000',
     textAlign: 'center',
   },
   formFooter: {
@@ -157,7 +155,7 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#750eec',
+    color: '#000000',
     marginBottom: 8,
   },
   inputControl: {
@@ -181,8 +179,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderWidth: 1,
-    backgroundColor: '#075eec',
-    borderColor: '#075eec',
+    backgroundColor: '#7d07ec',
+    borderColor: '#7d07ec',
   },
   btnText: {
     fontSize: 18,

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+
 import {
-  StyleSheet,
-  SafeAreaView,
-  View,
   Image,
+  SafeAreaView,
+  StyleSheet,
   Text,
-  TouchableOpacity,
   TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 export default function Example() {

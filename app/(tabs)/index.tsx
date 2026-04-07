@@ -42,7 +42,7 @@ export default function Example() {
               clearButtonMode="while-editing"
               keyboardType="email-address"
               onChangeText={email => setForm({ ...form, email })}
-              placeholder="nome@gmail.com"
+              placeholder="email@gmail.com"
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
               value={form.email} />

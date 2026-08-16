@@ -9,11 +9,12 @@ const COLORS = {
   textPrimary:   '#E6F0F5',
   textSecondary: '#9AB0BA',
   placeholder:   '#7F8B93',
-  border:        '#1b3945',
+  border:        'rgba(45,166,214,0.18)',
   borderFocus:   '#2da6d6',
+  divider:       'rgba(45,166,214,0.12)',
   error:         '#ff6b6b',
   errorBg:       '#3b1b1b',
-  divider:       '#17323e',
+  divider:       '#FFFFFF',
   white:         '#FFFFFF',
   disabled:      '#284651',
 };
@@ -67,6 +68,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: SPACING.xl,
     paddingTop: SPACING.lg,
+  },
+  logoText: {
+    ...FONT.title,
+    fontSize: 34,
+    color: COLORS.white,
+    marginBottom: SPACING.sm,
   },
   logoPlaceholder: {
     width: 500,
@@ -165,9 +172,9 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.md,
   },
   feedbackSuccess: {
-    backgroundColor: '#063b2b',
+    backgroundColor: 'rgba(45,166,214,0.12)',
     borderWidth: 1,
-    borderColor: '#147d59',
+    borderColor: COLORS.accent,
   },
   feedbackError: {
     backgroundColor: COLORS.errorBg,
@@ -213,7 +220,7 @@ const styles = StyleSheet.create({
     }),
   },
   loginButtonDisabled: {
-    backgroundColor: COLORS.disabled,
+    backgroundColor: 'rgba(45,166,214,0.35)',
   },
   loginButtonText: {
     ...FONT.button,

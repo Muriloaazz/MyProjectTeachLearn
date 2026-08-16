@@ -1,16 +1,17 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import {
-  ActivityIndicator,
-  Alert,
-  Modal,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
+    ActivityIndicator,
+    Alert,
+    Modal,
+    SafeAreaView,
+    ScrollView,
+    StatusBar,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
+import BackgroundDots from './BackgroundDots';
 import styles from './HomeStyles';
 
 // ─── Componente: Cabeçalho / Boas-vindas ─────────────────────────────────────
@@ -94,9 +95,10 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#1A1F36" />
+        <StatusBar barStyle="light-content" backgroundColor="#0d1b2a" />
+        <BackgroundDots />
 
-      <ScrollView
+        <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollConteudo}
         showsVerticalScrollIndicator={false}
@@ -110,7 +112,7 @@ export default function Home() {
 
           {carregandoPublicacoes ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="small" color="#2b6cb2" />
+              <ActivityIndicator size="small" color="#2da6d6" />
               <Text style={styles.loadingText}>Carregando anúncios...</Text>
             </View>
           ) : publicacoes.length === 0 ? (

@@ -3,14 +3,13 @@ import { useState } from 'react';
 import {
     ActivityIndicator,
     Alert,
-    Image,
     KeyboardAvoidingView,
     Platform,
     ScrollView,
     Text,
     TextInput,
     TouchableOpacity,
-    View,
+    View
 } from 'react-native';
 import BackgroundDots from './BackgroundDots';
 import styles from './LoginStyles';
@@ -192,14 +191,8 @@ const Login = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.headerSection}>
-          <Image
-            source={require('./assents/LogoVirtualSchool-removebg-preview.png')}
-            style={styles.logoPlaceholder}
-            resizeMode="contain"
-            accessibilityLabel="Logo Virtual School"
-          />
+          <Text style={styles.logoText}>VirtualSchool</Text>
           <Text style={styles.title}>Bem-vindo</Text>
-          <Text style={styles.subtitle}>Faça login para continuar</Text>
         </View>
 
         <View style={styles.formSection}>

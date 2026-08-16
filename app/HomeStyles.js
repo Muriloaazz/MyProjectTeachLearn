@@ -17,20 +17,19 @@
 import { StyleSheet } from 'react-native';
 
 const COLORS = {
-  bgPrimary:    '#F4F6FB',
-  headerStart:  '#2b6cb2',
-  headerEnd:    '#2b6cb2',
-  accent:       '#2b6cb2',
-  accentLight:  '#EEF0FE',
-  textDark:     '#2b6cb2',
-  textMid:      '#2b6cb2',
-  textLight:    '##2b6cb2',
-  white:        '#FFFFFF',
-  cardBg:       '#FFFFFF',
-  border:       '#E8EAF2',
-  danger:       '#ff0000',
-  dangerLight:  '#FEF2F2',
-  online:       '#22C55E',
+  background: '#0d1b2a',
+  surface:    '#10232f',
+  accent:     '#2da6d6',
+  accentLight:'#103740',
+  textPrimary:'#E6F0F5',
+  textSecondary:'#9AB0BA',
+  textTertiary:'#7F8B93',
+  white:      '#FFFFFF',
+  cardBg:     '#10232f',
+  border:     'rgba(45,166,214,0.18)',
+  danger:     '#ff6b6b',
+  dangerLight:'#3b1b1b',
+  online:     '#22C55E',
 };
 
 const styles = StyleSheet.create({
@@ -39,7 +38,9 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: COLORS.bgPrimary,
+    backgroundColor: COLORS.background,
+    position: 'relative',
+    overflow: 'hidden',
   },
   scroll: {
     flex: 1,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   // ── Cabeçalho ─────────────────────────────────────────────────────────────
 
   cabecalho: {
-    backgroundColor: COLORS.headerStart,
+    backgroundColor: COLORS.surface,
     paddingTop: 24,
     paddingBottom: 40,
     paddingHorizontal: 24,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 3,
-    borderColor: 'rgba(255,255,255,0.25)',
+    borderColor: 'rgba(255,255,255,0.12)',
   },
   avatarTexto: {
     fontSize: 26,
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   },
   saudacao: {
     fontSize: 13,
-    color: 'rgba(255,255,255,0.65)',
+    color: 'rgba(230,240,245,0.75)',
     fontWeight: '500',
     marginBottom: 2,
     letterSpacing: 0.3,
@@ -126,18 +127,18 @@ const styles = StyleSheet.create({
   nomeUsuario: {
     fontSize: 22,
     fontWeight: '800',
-    color: COLORS.white,
+    color: COLORS.textPrimary,
     letterSpacing: 0.2,
     marginBottom: 6,
   },
   badgeCargo: {
     alignSelf: 'flex-start',
-    backgroundColor: 'rgba(91,108,249,0.35)',
+    backgroundColor: 'rgba(45,166,214,0.12)',
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 3,
     borderWidth: 1,
-    borderColor: 'rgba(91,108,249,0.5)',
+    borderColor: 'rgba(45,166,214,0.28)',
   },
   badgeCargoTexto: {
     fontSize: 11,
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: 'rgba(91,108,249,0.12)',
+    backgroundColor: 'rgba(45,166,214,0.08)',
     right: -40,
     top: -60,
   },
@@ -172,12 +173,12 @@ const styles = StyleSheet.create({
   secaoTitulo: {
     fontSize: 20,
     fontWeight: '800',
-    color: COLORS.textDark,
+    color: COLORS.textPrimary,
     letterSpacing: 0.1,
   },
   secaoSubtitulo: {
     fontSize: 13,
-    color: COLORS.textLight,
+    color: COLORS.textSecondary,
     marginBottom: 16,
   },
 
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   cardNaoLido: {
-    borderColor: '#C7CBFF',
+    borderColor: 'rgba(199,203,255,0.6)',
     borderLeftWidth: 4,
     borderLeftColor: COLORS.accent,
   },
@@ -254,19 +255,19 @@ const styles = StyleSheet.create({
   },
   cardData: {
     fontSize: 11,
-    color: COLORS.textLight,
+    color: COLORS.textSecondary,
     fontWeight: '500',
   },
   cardTitulo: {
     fontSize: 15,
     fontWeight: '700',
-    color: COLORS.textDark,
+    color: COLORS.textPrimary,
     marginBottom: 6,
     lineHeight: 22,
   },
   cardDescricao: {
     fontSize: 13,
-    color: COLORS.textMid,
+    color: COLORS.textSecondary,
     lineHeight: 20,
     marginBottom: 12,
   },
@@ -284,11 +285,11 @@ const styles = StyleSheet.create({
 
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(26,31,54,0.55)',
+    backgroundColor: 'rgba(13,27,42,0.6)',
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.surface,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     padding: 28,
@@ -304,24 +305,24 @@ const styles = StyleSheet.create({
   modalTitulo: {
     fontSize: 19,
     fontWeight: '800',
-    color: COLORS.textDark,
+    color: COLORS.textPrimary,
     marginBottom: 6,
     lineHeight: 26,
   },
   modalData: {
     fontSize: 12,
-    color: COLORS.textLight,
+    color: COLORS.textSecondary,
     fontWeight: '500',
     marginBottom: 14,
   },
   modalDescricao: {
     fontSize: 14,
-    color: COLORS.textMid,
+    color: COLORS.textSecondary,
     lineHeight: 22,
     marginBottom: 24,
   },
   modalBotaoFechar: {
-    backgroundColor: COLORS.accentLight,
+    backgroundColor: COLORS.accent,
     borderRadius: 16,
     paddingVertical: 14,
     alignItems: 'center',
@@ -329,7 +330,7 @@ const styles = StyleSheet.create({
   modalBotaoFecharTexto: {
     fontSize: 15,
     fontWeight: '700',
-    color: COLORS.accent,
+    color: COLORS.white,
   },
 
   // ── Rodapé ────────────────────────────────────────────────────────────────
@@ -352,12 +353,12 @@ const styles = StyleSheet.create({
   rodapeAppNome: {
     fontSize: 15,
     fontWeight: '800',
-    color: COLORS.textDark,
+    color: COLORS.textPrimary,
     letterSpacing: 0.5,
   },
   rodapeVersao: {
     fontSize: 11,
-    color: COLORS.textLight,
+    color: COLORS.textSecondary,
     marginTop: 2,
   },
 
@@ -366,12 +367,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    backgroundColor: COLORS.dangerLight,
+    backgroundColor: 'rgba(45,166,214,0.06)',
     borderRadius: 16,
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderWidth: 1,
-    borderColor: '#ff0000',
+    borderColor: 'rgba(45,166,214,0.18)',
   },
   botaoSairIcone: {
     fontSize: 16,
@@ -387,30 +388,30 @@ const styles = StyleSheet.create({
   // ── Modal de Saída ────────────────────────────────────────────────────────
 
   modalSairContainer: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.surface,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     padding: 32,
     paddingBottom: 40,
     alignItems: 'center',
   },
-  modalSairIcone: {
-    fontSize: 48,
-    marginBottom: 16,
-  },
   modalSairTitulo: {
     fontSize: 22,
     fontWeight: '800',
-    color: COLORS.textDark,
+    color: COLORS.textPrimary,
     marginBottom: 12,
     textAlign: 'center',
   },
   modalSairMensagem: {
     fontSize: 14,
-    color: COLORS.textMid,
+    color: COLORS.textSecondary,
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: 28,
+  },
+  modalSairNome: {
+    fontWeight: '700',
+    color: COLORS.textPrimary,
   },
   modalSairNome: {
     fontWeight: '700',

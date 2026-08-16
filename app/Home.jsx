@@ -1,15 +1,16 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    Modal,
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    Text,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Alert,
+  Image,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import BackgroundDots from './BackgroundDots';
 import styles from './HomeStyles';
@@ -52,6 +53,8 @@ export default function Home() {
   const [modalSairVisivel, setModalSairVisivel] = useState(false);
   const [publicacoes, setPublicacoes] = useState([]);
   const [carregandoPublicacoes, setCarregandoPublicacoes] = useState(true);
+  const [failedImages, setFailedImages] = useState({});
+  const API_BASE = 'http://localhost:8080';
   const usuario = {
     nome: params?.userName ? String(params.userName) : 'Usuário',
     avatar: null,
@@ -62,7 +65,7 @@ export default function Home() {
       try {
         setCarregandoPublicacoes(true);
 
-        const response = await fetch('http://localhost:8080/api/v1/publicacoes');
+        const response = await fetch(`${API_BASE}/api/v1/publicacoes`);
         if (!response.ok) {
           throw new Error('Erro ao buscar publicações');
         }
@@ -126,11 +129,75 @@ export default function Home() {
               const descricao = item?.descricao ?? item?.description ?? item?.conteudo ?? item?.texto ?? '';
               const data = item?.data ?? item?.createdAt ?? item?.dataPublicacao ?? item?.created_at ?? '';
 
+              const key = item?.id ?? `${titulo}-${index}`;
+
+              const resolveImage = (it) => {
+                if (!it) return null;
+
+                const candidates = [
+                  it?.imagem,
+                  it?.imagemUrl,
+                  it?.image,
+                  it?.foto,
+                  it?.thumbnail,
+                  it?.thumb,
+                  it?.url,
+                  it?.urlImagem,
+                  it?.picture,
+                  it?.arquivo,
+                  it?.fileName,
+                  it?.file,
+                  it?.anexo?.url,
+                  it?.anexo?.fileName,
+                  Array.isArray(it?.arquivos) && it?.arquivos?.[0]?.url,
+                  Array.isArray(it?.files) && it?.files?.[0]?.path,
+                ].flat().filter(Boolean);
+
+                let val = candidates.length ? candidates[0] : null;
+                if (!val) return null;
+
+                // If it's an object with url/path
+                if (typeof val === 'object') {
+                  val = val.url || val.path || val.fileName || val.file || null;
+                }
+
+                if (!val) return null;
+
+                const s = String(val);
+                // base64/data URI
+                if (s.startsWith('data:')) return s;
+                // absolute URL
+                if (s.startsWith('http://') || s.startsWith('https://')) return s;
+                // relative path -> prefix with API base
+                if (s.startsWith('/')) return `${API_BASE}${s}`;
+                return `${API_BASE}/${s}`;
+              };
+
+              const imageUrl = resolveImage(item);
+
               return (
-                <View key={item?.id ?? `${titulo}-${index}`} style={styles.card}>
-                  <Text style={styles.cardTitulo}>{titulo}</Text>
-                  <Text style={styles.cardDescricao}>{descricao || 'Sem descrição disponível.'}</Text>
-                  {data ? <Text style={styles.cardData}>{String(data)}</Text> : null}
+                <View key={key} style={styles.card}>
+                  {imageUrl && !failedImages[key] ? (
+                    <Image
+                      source={{ uri: String(imageUrl) }}
+                      style={styles.cardImage}
+                      resizeMode="cover"
+                      onError={() => setFailedImages((p) => ({ ...p, [key]: true }))}
+                    />
+                  ) : (
+                    <View style={styles.cardImagePlaceholder} />
+                  )}
+
+                  <View style={styles.cardBody}>
+                    <Text style={styles.cardTitulo}>{titulo}</Text>
+                    <Text style={styles.cardDescricao} numberOfLines={3} ellipsizeMode="tail">
+                      {descricao || 'Sem descrição disponível.'}
+                    </Text>
+
+                    <View style={styles.cardMetaRow}>
+                      {data ? <Text style={styles.cardData}>{String(data)}</Text> : null}
+                    </View>
+                  </View>
                 </View>
               );
             })

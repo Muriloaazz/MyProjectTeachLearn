@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: COLORS.cardBg,
     borderRadius: 20,
-    padding: 18,
+    padding: 14,
     borderWidth: 1,
     borderColor: COLORS.border,
     shadowColor: '#1A1F36',
@@ -214,6 +214,47 @@ const styles = StyleSheet.create({
     position: 'relative',
     overflow: 'hidden',
     marginBottom: 14,
+  },
+  cardImage: {
+    width: '100%',
+    height: 120,
+    borderRadius: 10,
+    marginBottom: 10,
+    backgroundColor: 'rgba(255,255,255,0.03)',
+  },
+  cardBody: {
+    paddingHorizontal: 2,
+  },
+  cardTitulo: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: COLORS.textPrimary,
+    marginBottom: 6,
+    lineHeight: 20,
+  },
+  cardDescricao: {
+    fontSize: 12,
+    color: COLORS.textSecondary,
+    lineHeight: 20,
+    marginBottom: 10,
+  },
+  cardMetaRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  cardData: {
+    fontSize: 12,
+    color: COLORS.textTertiary,
+  },
+  cardImagePlaceholder: {
+    width: '100%',
+    height: 120,
+    borderRadius: 10,
+    marginBottom: 10,
+    backgroundColor: 'rgba(255,255,255,0.02)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.03)',
   },
   cardNaoLido: {
     borderColor: 'rgba(199,203,255,0.6)',

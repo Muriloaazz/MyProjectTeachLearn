@@ -1,17 +1,18 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import {
-  ActivityIndicator,
-  Alert,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    ActivityIndicator,
+    Alert,
+    Image,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
+import BackgroundDots from './BackgroundDots';
 import styles from './LoginStyles';
 
 const Login = ({ navigation }) => {
@@ -183,8 +184,10 @@ const Login = ({ navigation }) => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      <BackgroundDots />
       <ScrollView
         contentContainerStyle={styles.scrollContent}
+        style={{ zIndex: 1 }}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
@@ -207,7 +210,7 @@ const Login = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="seuemail@gmail.com"
-                placeholderTextColor="#AAAAAA"
+                placeholderTextColor="#7F8B93"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -239,7 +242,7 @@ const Login = ({ navigation }) => {
               <TextInput
                 style={[styles.input, styles.inputPassword]}
                 placeholder="Digite sua senha"
-                placeholderTextColor="#AAAAAA"
+                placeholderTextColor="#7F8B93"
                 secureTextEntry={!showPassword}
                 autoCapitalize="none"
                 autoCorrect={false}

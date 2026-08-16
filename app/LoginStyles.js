@@ -1,21 +1,21 @@
 import { Platform, StyleSheet } from 'react-native';
 
 const COLORS = {
-  background:    '#F7F8FA',
-  surface:       '#FFFFFF',
-  primary:       '#1A1A2E',
-  accent:        '#2b6cb2',
-  accentHover:   '#2b6cb2',
-  textPrimary:   '#1A1A2E',
-  textSecondary: '#6B7280',
-  placeholder:   '#AAAAAA',
-  border:        '#E5E7EB',
-  borderFocus:   '#2b6cb2',
-  error:         '#ff0000',
-  errorBg:       '#FEF2F2',
-  divider:       '#D1D5DB',
+  background:    '#0d1b2a', // dark navy provided by user
+  surface:       '#10232f',
+  primary:       '#E6F0F5',
+  accent:        '#2da6d6',
+  accentHover:   '#2b9bd0',
+  textPrimary:   '#E6F0F5',
+  textSecondary: '#9AB0BA',
+  placeholder:   '#7F8B93',
+  border:        '#1b3945',
+  borderFocus:   '#2da6d6',
+  error:         '#ff6b6b',
+  errorBg:       '#3b1b1b',
+  divider:       '#17323e',
   white:         '#FFFFFF',
-  disabled:      '#2b6cb2',
+  disabled:      '#284651',
 };
 
 const SPACING = {
@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
+    position: 'relative',
+    overflow: 'hidden',
   },
   scrollContent: {
     flexGrow: 1,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.surface,
     paddingHorizontal: SPACING.md,
     height: 52,
   },
@@ -163,9 +165,9 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.md,
   },
   feedbackSuccess: {
-    backgroundColor: '#ECFDF3',
+    backgroundColor: '#063b2b',
     borderWidth: 1,
-    borderColor: '#34D399',
+    borderColor: '#147d59',
   },
   feedbackError: {
     backgroundColor: COLORS.errorBg,
@@ -176,6 +178,7 @@ const styles = StyleSheet.create({
     ...FONT.small,
     fontWeight: '600',
     textAlign: 'center',
+    color: COLORS.textPrimary,
   },
 
   /* ──────────────────────── Recuperação de Senha ──────────────── */
